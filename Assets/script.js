@@ -25,6 +25,10 @@ var generatePassword = function () {
 
   var pwLength = window.prompt("How many characters between 8 and 128 do you want to have in your password?")
 
+  if (pwLength <8 || pwLength > 128) {
+    alert("Password must be between 8 - 128 characters")
+  }
+
   var charUpper = window.confirm("Do you want to include Uppercase letters in your password?")
   console.log(charUpper);
   if (charUpper) {
@@ -59,15 +63,15 @@ var generatePassword = function () {
       charcSelect.push(i)
     };
     console.log(charcSelect);
-  
+  }
+
   let password = '';
   for (let i = 0; i < pwLength; i++) {
     var index = Math.floor(Math.random() * charcSelect.length);
     console.log(index);
+    var computerChoice = charcSelect[index];
+    console.log(computerChoice)
+    password = password + computerChoice
   }
-
-
-  }
-
-  return password;
 }
+  return password;
