@@ -21,14 +21,48 @@ generateBtn.addEventListener("click", writePassword);
 
 var generatePassword = function (){
   var charcSelect = [];
-  var isUppercase = window.confirm ("Do you want to include Uppercase letters in your password?")
-  console.log(isUppercase);
-  if (isUppercase) {
-    for (var i of upperCase) {
+
+  var pwLength = window.prompt("How many characters between 8 and 128 do you want to have in your password?")
+
+  var charUpper = window.confirm ("Do you want to include Uppercase letters in your password?")
+  console.log(charUpper);
+  if (charUpper) {
+    for (var i of uppercase) {
         charcSelect.push(i)
     };
     console.log(charcSelect);
   }
+
+  var charLower = window.confirm ("Do you want to include Lowercase letters in your password?")
+  console.log(charLower);
+  if (charLower) {
+    for (var i of lowercase) {
+        charcSelect.push(i)
+    };
+    console.log(charcSelect);
+  }
+
+  var charSymbol = window.confirm ("Do you want to include Specila Symbols in your password?")
+  console.log(charSymbol);
+  if (charSymbol) {
+    for (var i of specialSymbols) {
+        charcSelect.push(i)
+    };
+    console.log(charcSelect);
+  }
+
+  var charNumber = window.confirm ("Do you want to include Numbers in your password?")
+  console.log(charNumber);
+  if (charNumber) {
+    for (var i of numbers) {
+        charcSelect.push(i)
+    };
+    console.log(charcSelect);
+
+    
+  }
+
+  return password;
 
 
   // var pwLength = window.prompt ("How many characters between 8 and 128 do you want to have in your password?")
