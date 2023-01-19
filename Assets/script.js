@@ -27,10 +27,6 @@ function generatePassword() {
   var pwLength = window.prompt("How many characters between 8 and 128 do you want to have in your password?")
 
   //Stops user from inputing too few or many characters
-  // if (pwLength <8 || pwLength > 128) {
-  //   alert("Password must be between 8 - 128 characters")
-  //   return;
-  // }
   while (pwLength < 8 || pwLength > 128) {
     alert("Password must be between 8 - 128 characters.")
     pwLength = window.prompt("How many characters between 8 and 128 do you want to have in your password?")
