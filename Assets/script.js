@@ -1,7 +1,8 @@
 var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-var specialSymbols = ["!", "$", "~", "?", "#", "%"];
+var specialSymbols = ["!", "$", "~", "?", "#", "%", "*", "-", "@"];
+
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -20,13 +21,19 @@ generateBtn.addEventListener("click", writePassword);
 // Opens up prompt windows that all you to select what you want your password to look like. 
 // Confirm rather than prompt allows for a true/false statment. If cancel is chosen, nothing needs to get logged.
 // Push allows us to push that chose variable into the array of CharcSelect to be randomized for password
-var generatePassword = function () {
+function generatePassword() {
   var charcSelect = [];
 
   var pwLength = window.prompt("How many characters between 8 and 128 do you want to have in your password?")
 
-  if (pwLength <8 || pwLength > 128) {
-    alert("Password must be between 8 - 128 characters")
+  //Stops user from inputing too few or many characters
+  // if (pwLength <8 || pwLength > 128) {
+  //   alert("Password must be between 8 - 128 characters")
+  //   return;
+  // }
+  while (pwLength < 8 || pwLength > 128) {
+    alert("Password must be between 8 - 128 characters.")
+    pwLength = window.prompt("How many characters between 8 and 128 do you want to have in your password?")
   }
 
   var charUpper = window.confirm("Do you want to include Uppercase letters in your password?")
@@ -65,13 +72,15 @@ var generatePassword = function () {
     console.log(charcSelect);
   }
 
-  let password = '';
+  let password = "";
   for (let i = 0; i < pwLength; i++) {
     var index = Math.floor(Math.random() * charcSelect.length);
     console.log(index);
     var computerChoice = charcSelect[index];
     console.log(computerChoice)
-    password = password + computerChoice
+    // password = password + computerChoice;
+    password += computerChoice
   }
-}
+
   return password;
+}
